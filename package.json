@@ -1,0 +1,10 @@
+{
+  "name": "cinematic-portfolio",
+  "version": "1.0.0",
+  "description": "GIREESH — cinematic portfolio",
+  "type": "module",
+  "scripts": {
+    "start": "node tools/serve.mjs 5173",
+    "serve": "node tools/serve.mjs 5173"
+  }
+}

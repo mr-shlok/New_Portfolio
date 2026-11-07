@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>GIREESH — Artist · Creative · Storyteller</title>
-<meta name="description" content="Welcome to my world. Portfolio of Gireesh — artist, creative, storyteller.">
+<title>SHLOK JADHAV — Software Development Engineer · Java &amp; Full Stack · Accelya</title>
+<meta name="description" content="Cinematic portfolio of Shlok Jadhav — Software Development Engineer at Accelya Services India. Specializing in Java, Spring Boot, REST APIs, database systems, and full-stack architecture.">
 <meta name="theme-color" content="#000000">
 
 <link rel="preload" href="public/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -15,118 +15,161 @@
 <link rel="stylesheet" href="src/styles/chrono.css">
 <link rel="stylesheet" href="src/styles/projects.css">
 <link rel="stylesheet" href="src/styles/finale.css">
+<link rel="stylesheet" href="src/styles/portfolio-sections.css">
 </head>
 <body>
 
-<!-- the real heading, for search engines and screen readers; the visible
-     wordmark is drawn on the canvas so video can be clipped inside its letters -->
-<h1 class="sr-only">GIREESH — Artist, Creative, Storyteller. Welcome to my world.</h1>
+<h1 class="sr-only">SHLOK JADHAV — Software Development Engineer at Accelya Services India. Java &amp; Full Stack Engineer.</h1>
 
+<!-- ---------------------------------------------------------------------- -->
+<!-- Premium Boot Loader: film-title card, HUD brackets, live readout       -->
+<!-- ---------------------------------------------------------------------- -->
+<div class="loader" id="boot" role="status" aria-live="polite">
+  <p class="sr-only">Loading the experience…</p>
+  <div class="loader__grain" aria-hidden="true"></div>
+  <div class="loader__vignette" aria-hidden="true"></div>
+  <span class="loader__brk loader__brk--tl" aria-hidden="true"></span>
+  <span class="loader__brk loader__brk--tr" aria-hidden="true"></span>
+  <span class="loader__brk loader__brk--bl" aria-hidden="true"></span>
+  <span class="loader__brk loader__brk--br" aria-hidden="true"></span>
+
+  <div class="loader__core">
+    <p class="loader__kicker"><i class="loader__pulse" aria-hidden="true"></i>A CINEMATIC PORTFOLIO</p>
+
+    <h2 class="loader__mark" aria-hidden="true">
+      <span style="--l:0"><i>S</i></span><span style="--l:1"><i>H</i></span><span style="--l:2"><i>L</i></span><span style="--l:3"><i>O</i></span><span style="--l:4"><i>K</i></span>
+    </h2>
+
+    <p class="loader__rule" aria-hidden="true"><i></i></p>
+    <p class="loader__tag">SOFTWARE&nbsp;ENGINEER · JAVA &amp; FULL&nbsp;STACK</p>
+
+    <div class="loader__gauge">
+      <div class="loader__rail"><i class="loader__fill" id="bootFill"></i></div>
+      <div class="loader__meta">
+        <span class="loader__status" id="bootStatus">THREADING THE FILM</span>
+        <span class="loader__pct" id="bootPct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="loader__enter" id="bootEnter" hidden>
+    <span>Enter</span>
+  </button>
+</div>
+
+<!-- ---------------------------------------------------------------------- -->
+<!-- Global Fixed Header: persistent across hero, 3D scenes, and sections   -->
+<!-- ---------------------------------------------------------------------- -->
+<header class="hdr" id="hdr">
+  <svg class="hdr__rule" id="hdrRule" aria-hidden="true" preserveAspectRatio="none">
+    <polyline id="hdrRulePath" fill="none" stroke="currentColor" stroke-width="1.25"
+              vector-effect="non-scaling-stroke"/>
+  </svg>
+
+  <a class="hdr__mark" href="#hero" aria-label="Shlok Jadhav, home">
+    <span class="mark-word">SHLOK</span>
+  </a>
+
+  <span class="hdr__div" aria-hidden="true"></span>
+
+  <p class="hdr__roles">
+    <span>Software Engineer</span><span>Java &amp; Full Stack</span><span>Accelya SDE</span>
+  </p>
+
+  <nav class="hdr__nav" aria-label="Primary">
+    <ul>
+      <li><a href="#hero" class="is-active" data-nav>Home</a></li>
+      <li><a href="#universe" data-nav>Universe</a></li>
+      <li><a href="#chrono" data-nav>Journey</a></li>
+      <li><a href="#about" data-nav>About</a></li>
+      <li><a href="#work" data-nav>Work</a></li>
+      <li><a href="#achievements" data-nav>Achievements</a></li>
+      <li><a href="#skills" data-nav>Skills</a></li>
+      <li><a href="#contact" data-nav>Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hdr__meta">
+    <div class="hdr__metaSub">
+      <button class="hdr__sound-btn" id="soundToggle" aria-label="Toggle cinematic audio" title="Sound Effects &amp; Ambient">
+        <span class="sound-wave"><i></i><i></i><i></i><i></i></span>
+        <span class="sound-text">SOUND: OFF</span>
+      </button>
+      <span class="hdr__metaLabel">SHLOK JADHAV — MMXXVI</span>
+      <span class="hdr__pips" aria-hidden="true"><i></i><i></i><i></i></span>
+    </div>
+  </div>
+
+  <button class="hdr__burger" id="burger" aria-expanded="false" aria-controls="menu">
+    <span aria-hidden="true"></span><span aria-hidden="true"></span>
+    <span class="sr-only">Menu</span>
+  </button>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<nav class="menu" id="menu" aria-label="Primary, expanded" hidden>
+  <ul>
+    <li><a href="#hero" class="is-active" data-nav>Home</a></li>
+    <li><a href="#universe" data-nav>Universe</a></li>
+    <li><a href="#chrono" data-nav>Journey</a></li>
+    <li><a href="#about" data-nav>About</a></li>
+    <li><a href="#work" data-nav>Work</a></li>
+    <li><a href="#achievements" data-nav>Achievements</a></li>
+    <li><a href="#skills" data-nav>Skills</a></li>
+    <li><a href="#contact" data-nav>Contact</a></li>
+  </ul>
+  <p class="menu__tag">••• SHLOK JADHAV · SDE @ ACCELYA •••</p>
+</nav>
+
+<!-- ---------------------------------------------------------------------- -->
+<!-- Scene 01: Hero WebGL Experience with Transparent Walking Video & Canvas -->
+<!-- ---------------------------------------------------------------------- -->
 <div class="stage-wrap">
   <canvas id="stage" aria-hidden="true"></canvas>
 
-  <!-- ------------------------------------------------------------------ -->
-  <header class="hdr" id="hdr">
-    <svg class="hdr__rule" id="hdrRule" aria-hidden="true" preserveAspectRatio="none">
-      <polyline id="hdrRulePath" fill="none" stroke="currentColor" stroke-width="1.25"
-                vector-effect="non-scaling-stroke"/>
-    </svg>
-
-    <a class="hdr__mark" href="#" aria-label="Gireesh, home">
-      <span class="mark-word">GIREESH</span>
-    </a>
-
-    <span class="hdr__div" aria-hidden="true"></span>
-
-    <p class="hdr__roles">
-      <span>Artist</span><span>Creative</span><span>Storyteller</span>
-    </p>
-
-    <nav class="hdr__nav" aria-label="Primary">
-      <ul>
-        <li><a href="#" class="is-active" data-nav>Home</a></li>
-        <li><a href="#" data-nav>Work</a></li>
-        <li><a href="#" data-nav>About</a></li>
-        <li><a href="#" data-nav>Journal</a></li>
-        <li><a href="#" data-nav>Contact</a></li>
-      </ul>
-    </nav>
-
-    <div class="hdr__meta">
-      <span class="hdr__metaLabel">Portfolio — MMXXVI</span>
-      <span class="hdr__pips" aria-hidden="true"><i></i><i></i><i></i></span>
-    </div>
-
-    <button class="hdr__burger" id="burger" aria-expanded="false" aria-controls="hdrNavMobile">
-      <span aria-hidden="true"></span><span aria-hidden="true"></span>
-      <span class="sr-only">Menu</span>
-    </button>
-  </header>
-
-  <!-- ------------------------------------------------------------------ -->
   <div class="furniture" aria-hidden="true">
     <p class="welcome" id="welcome">
       <b class="welcome__dots">•••</b>
-      <span class="welcome__text">Welcome to my world</span>
+      <span class="welcome__text">WELCOME TO MY WORLD</span>
       <b class="welcome__dots">•••</b>
     </p>
 
-    <p class="chip chip--artist" id="chipArtist"><span>•Artist Gireesh•</span></p>
-    <p class="chip chip--legend" id="chipLegend"><span>•Legend•</span></p>
+    <p class="chip chip--artist" id="chipArtist"><span>•SOFTWARE ENGINEER•</span></p>
+    <p class="chip chip--legend" id="chipLegend"><span>•ACCELYA SDE•</span></p>
 
     <div class="arrows arrows--l" id="arrowsL"></div>
     <div class="arrows arrows--r" id="arrowsR"></div>
-    <!-- only the bottom-right grid remains: the top-left one sat under the
-         navigation and fought with it -->
     <div class="grid-dots grid-dots--br" id="dotsBR"></div>
-  </div>
-
-  <!-- ------------------------------------------------------------------ -->
-  <nav class="menu" id="menu" aria-label="Primary, expanded" hidden>
-    <ul>
-      <li><a href="#" class="is-active" data-nav>Home</a></li>
-      <li><a href="#" data-nav>Work</a></li>
-      <li><a href="#" data-nav>About</a></li>
-      <li><a href="#" data-nav>Journal</a></li>
-      <li><a href="#" data-nav>Contact</a></li>
-    </ul>
-    <p class="menu__tag">••• Welcome to my world •••</p>
-  </nav>
-
-  <!-- ------------------------------------------------------------------ -->
-  <div class="boot" id="boot">
-    <div class="boot__bar"><i id="bootFill"></i></div>
-    <button class="boot__enter" id="bootEnter" hidden>
-      <span>Enter</span>
-    </button>
   </div>
 
   <noscript>
     <div class="fallback">
-      <p>GIREESH</p>
+      <p>SHLOK</p>
       <small>This opening is an animated experience. Please enable JavaScript.</small>
     </div>
   </noscript>
 </div>
 
+<!-- ====================================================================== -->
+<!-- Main Flow: 3D Visual Scenes FIRST -> Portfolio Segments -> Contact    -->
+<!-- ====================================================================== -->
 <main class="flow">
-  <!-- the hero above is position:fixed, so this reserves its scroll height -->
-  <div class="hero-spacer" aria-hidden="true"></div>
+  <!-- The hero above is position:fixed, so this reserves its scroll height -->
+  <div class="hero-spacer" id="hero" aria-hidden="true"></div>
 
   <!-- ==================================================================== -->
-  <!-- The creative-universe film itself, played as supplied. All labels and
-       cards are part of the footage; the DOM adds only what a screen reader
-       needs and a veil that breathes over the loop seam. -->
+  <!-- Scene 02: The Creative Universe Film Loop                            -->
+  <!-- ==================================================================== -->
   <section class="universe" id="universe" aria-labelledby="uniTitle">
     <header class="universe__title" id="uniTitle">
       <p class="universe__over">Scene 02</p>
       <h2 class="universe__name">The Creative<br>Universe</h2>
-      <p class="universe__sub">Tools · Ideas · People · Impact</p>
+      <p class="universe__sub">Tools · Ideas · Systems · Impact</p>
     </header>
     <ul class="sr-only">
-      <li>Figma</li><li>Photoshop</li><li>After Effects</li><li>Premiere Pro</li>
-      <li>Lightroom</li><li>Notion</li><li>Framer</li><li>Webflow</li>
-      <li>Spline</li><li>Claude</li><li>ChatGPT</li><li>Midjourney</li>
+      <li>Java</li><li>Spring Boot</li><li>PostgreSQL</li><li>Redis</li>
+      <li>React</li><li>Linux</li><li>Git</li><li>Docker</li>
+      <li>Claude</li><li>ChatGPT</li><li>Gemini</li>
     </ul>
     <video id="uniFilm" muted playsinline loop preload="metadata"
            poster="public/media/universe.jpg" aria-hidden="true">
@@ -135,6 +178,8 @@
     <div class="universe__veil" id="uniVeil" aria-hidden="true"></div>
   </section>
 
+  <!-- ==================================================================== -->
+  <!-- Scene 03: The 3D Journey Through Time                                -->
   <!-- ==================================================================== -->
   <section class="chrono" id="chrono" aria-labelledby="chronoTitle">
     <div class="chrono__pin">
@@ -145,8 +190,8 @@
       </h2>
       <p class="chrono__rail" aria-hidden="true">
         <i></i>
-        <span>Ideas</span><span>Experiences</span><span>People</span>
-        <span>Projects</span><span>Me</span>
+        <span>Ideas</span><span>Experiences</span><span>Engineering</span>
+        <span>Projects</span><span>Shlok</span>
         <i></i>
       </p>
 
@@ -157,17 +202,16 @@
         Same<br>curiosity<br>a brighter<br>tomorrow
       </p>
       <p class="chrono__note chrono__note--br" aria-hidden="true">
-        Still<br>designing<br>what's<br>next<i></i>
+        Still<br>engineering<br>what's<br>next<i></i>
       </p>
 
       <div class="chrono__deck" id="chronoDeck"></div>
-
-      <!-- the figure's own layer, stacked over the deck: he stands in front
-           of the timeline, looking at his journey -->
       <canvas id="chronoFront" aria-hidden="true"></canvas>
     </div>
   </section>
 
+  <!-- ==================================================================== -->
+  <!-- Scene 04: Interactive 3D Projects Gallery                            -->
   <!-- ==================================================================== -->
   <section class="gallery" id="gallery" aria-labelledby="galleryTitle">
     <div class="gallery__pin">
@@ -187,7 +231,7 @@
         Scroll<br>Explore<br>Interact
       </p>
       <p class="g-label g-label--real" aria-hidden="true">
-        Real<br>Projects<br>Real<br>Stories
+        Real<br>Systems<br>Real<br>Stories
       </p>
       <p class="g-label g-label--tomorrow" aria-hidden="true">
         Designing<br>A Brighter<br>Tomorrow
@@ -196,49 +240,908 @@
     </div>
   </section>
 
+  <!-- ==================================================================== -->
+  <!-- 01. ABOUT ME SECTION (Positioned right above work & contact)          -->
+  <!-- ==================================================================== -->
+  <section class="sec sec-about" id="about" aria-labelledby="aboutTitle">
+    <div class="sec__inner">
+      <header class="sec__header">
+        <p class="sec__kicker">// 01 — IDENTITY &amp; PHILOSOPHY</p>
+        <h2 class="sec__title" id="aboutTitle">ABOUT <span class="text-accent">SHLOK JADHAV</span></h2>
+        <p class="sec__sub">Software Development Engineer at Accelya Services India · Information Technology Graduate</p>
+      </header>
+
+      <div class="about-grid">
+        <!-- Left: Narrative -->
+        <div class="about-narrative">
+          <p class="about-intro-lead">
+            I'm <strong>Shlok Jadhav</strong>, an Information Technology graduate and <strong>Software Development Engineer at Accelya Services India Private Limited</strong>, focused on building reliable, scalable, and thoughtfully engineered software solutions.
+          </p>
+
+          <p>
+            My technical foundation lies in Java and full-stack development, with hands-on experience across object-oriented programming, Spring Boot, REST APIs, SQL, database integration, and application development. I enjoy understanding how systems work beneath the surface — from designing backend logic and managing data to connecting components into complete, functional applications.
+          </p>
+
+          <p>
+            My journey has been shaped by internships, independent projects, hackathons, and competitive technical challenges. These experiences have strengthened my problem-solving abilities, collaborative mindset, and approach to translating ideas into working solutions.
+          </p>
+
+          <p>
+            Beyond code, my experience in client relations and competitive debating has helped me develop communication, adaptability, and the ability to approach challenges from different perspectives.
+          </p>
+
+          <p>
+            I believe good engineering is more than writing code. It is about making deliberate decisions, building with purpose, and continuously improving the way technology serves people.
+          </p>
+
+          <!-- Current status HUD banner -->
+          <div class="about-status-banner crystal-card">
+            <div class="crystal-sparks" aria-hidden="true">
+              <i class="spark spark-1">✦</i>
+              <i class="spark spark-3">✦</i>
+            </div>
+            <span class="status-dot"></span>
+            <p class="status-text">
+              <strong>Currently:</strong> Growing as a software professional at Accelya while deepening my expertise in Java, backend engineering, and full-stack development.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: 4 Profile Highlights Cards with Crystal Blink -->
+        <div class="about-highlights">
+          <!-- Card 1 -->
+          <article class="highlight-box crystal-card">
+            <div class="crystal-sparks" aria-hidden="true">
+              <i class="spark spark-1">✦</i>
+              <i class="spark spark-2">✦</i>
+            </div>
+            <div class="highlight-head">
+              <span class="highlight-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </span>
+              <h3 class="highlight-title">Java &amp; Full Stack</h3>
+            </div>
+            <p class="highlight-desc">Core Java, Spring Boot, APIs, and databases designed for stability and throughput.</p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="highlight-box crystal-card">
+            <div class="crystal-sparks" aria-hidden="true">
+              <i class="spark spark-1">✦</i>
+              <i class="spark spark-2">✦</i>
+            </div>
+            <div class="highlight-head">
+              <span class="highlight-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+              </span>
+              <h3 class="highlight-title">Problem Solving</h3>
+            </div>
+            <p class="highlight-desc">Hackathons, technical challenges, and practical engineering solving real-world constraints.</p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="highlight-box crystal-card">
+            <div class="crystal-sparks" aria-hidden="true">
+              <i class="spark spark-1">✦</i>
+              <i class="spark spark-2">✦</i>
+            </div>
+            <div class="highlight-head">
+              <span class="highlight-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+              </span>
+              <h3 class="highlight-title">Project-Driven</h3>
+            </div>
+            <p class="highlight-desc">Turning concepts into functional applications with modular components and clean code.</p>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="highlight-box crystal-card">
+            <div class="crystal-sparks" aria-hidden="true">
+              <i class="spark spark-1">✦</i>
+              <i class="spark spark-2">✦</i>
+            </div>
+            <div class="highlight-head">
+              <span class="highlight-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+              </span>
+              <h3 class="highlight-title">Beyond Code</h3>
+            </div>
+            <p class="highlight-desc">Communication, client engagement, stakeholder collaboration, and competitive debating.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- 02. WORK EXPERIENCE — CAREER TIMELINE                                -->
+  <!-- ==================================================================== -->
+  <section class="sec sec-work" id="work" aria-labelledby="workTitle">
+    <div class="sec__inner">
+      <header class="sec__header">
+        <p class="sec__kicker">// 02 — CAREER &amp; TRAJECTORY</p>
+        <h2 class="sec__title" id="workTitle">WORK EXPERIENCE — <span class="text-accent">CAREER TIMELINE</span></h2>
+        <p class="sec__sub">Enterprise software development, intensive incubation, and specialized client relationship management.</p>
+      </header>
+
+      <div class="timeline-controls">
+        <button class="btn-ghost-toggle crystal-card" id="toggleAllTimeline" type="button">[ + Expand All ]</button>
+      </div>
+
+      <div class="timeline-wrap">
+        <div class="timeline-line" aria-hidden="true"></div>
+
+        <!-- 1. ACCELYA (CURRENT ROLE) -->
+        <article class="t-card crystal-card is-current is-expanded">
+          <div class="crystal-sparks" aria-hidden="true">
+            <i class="spark spark-1">✦</i>
+            <i class="spark spark-2">✦</i>
+            <i class="spark spark-3">✦</i>
+          </div>
+          <span class="t-node" aria-hidden="true"></span>
+          <div class="t-top">
+            <div class="t-brand">
+              <div class="t-logo-box" title="Accelya Services India Private Limited">
+                <!-- Official Accelya Aviation Ribbon SVG -->
+                <svg class="t-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Accelya Logo">
+                  <defs>
+                    <linearGradient id="accelyaGrad" x1="10" y1="10" x2="90" y2="90" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#FF4343"/>
+                      <stop offset="100%" stop-color="#DE1B1C"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M18 68 C15 50, 32 30, 52 24 C72 18, 86 28, 84 42 C82 56, 64 66, 44 68 C30 69, 21 62, 21 54 C21 44, 38 36, 56 36 C74 36, 82 46, 78 58" stroke="url(#accelyaGrad)" stroke-width="8.5" stroke-linecap="round" fill="none"/>
+                  <circle cx="56" cy="36" r="4.5" fill="#FFFFFF"/>
+                  <text x="50" y="88" text-anchor="middle" fill="#FFFFFF" font-family="'Oswald', sans-serif" font-weight="700" font-size="13" letter-spacing="2">ACCELYA</text>
+                </svg>
+              </div>
+              <div>
+                <h3 class="t-role">Engineer I – Software Development</h3>
+                <p class="t-org">
+                  <span>Accelya Services India Private Limited</span>
+                  <span class="badge-tag badge-current">CURRENT ROLE</span>
+                </p>
+              </div>
+            </div>
+            <span class="t-meta">October 2026 – Present · Full-time</span>
+          </div>
+
+          <p class="t-desc">
+            Contributing to my professional journey in enterprise software development, with a focus on Java-based engineering, technical learning, and building a strong foundation in production software systems.
+          </p>
+
+          <button class="t-toggle-btn" type="button" aria-expanded="true">
+            <span>Collapse Details</span>
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </button>
+
+          <div class="t-expandable">
+            <div class="t-details-grid">
+              <div class="t-tech-stack">
+                <span class="pill-tech">Java</span>
+                <span class="pill-tech">Spring Boot</span>
+                <span class="pill-tech">Enterprise Systems</span>
+                <span class="pill-tech">REST APIs</span>
+                <span class="pill-tech">Microservices</span>
+                <span class="pill-tech">Production Architecture</span>
+              </div>
+              <p class="t-desc" style="margin:0; font-size:13px; color:#a4a4a4;">
+                Developing enterprise solutions for global travel and airline technology, participating in code reviews, optimizing data pipelines, and aligning with high-availability architectural standards.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. QSPIDERS (TIMELINE UPDATED TO OCT 2026) -->
+        <article class="t-card crystal-card">
+          <div class="crystal-sparks" aria-hidden="true">
+            <i class="spark spark-1">✦</i>
+            <i class="spark spark-2">✦</i>
+          </div>
+          <span class="t-node" aria-hidden="true"></span>
+          <div class="t-top">
+            <div class="t-brand">
+              <div class="t-logo-box" title="QSpiders">
+                <!-- Official QSpiders Monogram SVG -->
+                <svg class="t-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="QSpiders Logo">
+                  <path d="M50 16 A32 32 0 1 0 78 68 L88 78 A4 4 0 0 0 92 74 L82 64 A32 32 0 0 0 50 16 Z" fill="#0B4778"/>
+                  <path d="M48 28 A20 20 0 0 1 70 48 C70 56 64 62 58 65 C52 68 44 64 42 58 C40 52 46 44 54 44 C62 44 66 50 64 56" stroke="#F7941D" stroke-width="6" stroke-linecap="round" fill="none"/>
+                  <circle cx="50" cy="48" r="5" fill="#F7941D"/>
+                  <text x="50" y="93" text-anchor="middle" fill="#FFFFFF" font-family="'Oswald', sans-serif" font-weight="700" font-size="12" letter-spacing="1.5">QSPIDERS</text>
+                </svg>
+              </div>
+              <div>
+                <h3 class="t-role">Java Full Stack Development</h3>
+                <p class="t-org">
+                  <span>QSpiders · Internship Incubation Program</span>
+                  <span class="badge-tag">INCUBATION</span>
+                </p>
+              </div>
+            </div>
+            <span class="t-meta">January 2026 – October 2026 · Thane</span>
+          </div>
+
+          <p class="t-desc">
+            Selected through campus recruitment for an industry-focused development program. Building practical expertise in Core Java, Advanced Java, Spring, SQL, HTML, CSS, and JavaScript through coding exercises, application development, debugging, and technical assignments.
+          </p>
+
+          <button class="t-toggle-btn" type="button" aria-expanded="false">
+            <span>Expand Details</span>
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </button>
+
+          <div class="t-expandable">
+            <div class="t-details-grid">
+              <div class="t-tech-stack">
+                <span class="pill-tech">Core Java</span>
+                <span class="pill-tech">Advanced Java</span>
+                <span class="pill-tech">Spring Framework</span>
+                <span class="pill-tech">SQL</span>
+                <span class="pill-tech">JavaScript</span>
+                <span class="pill-tech">HTML/CSS</span>
+              </div>
+              <p class="t-desc" style="margin:0; font-size:13px; color:#a4a4a4;">
+                Intensive algorithmic problem solving, hands-on architectural design patterns, multi-tier full-stack development, and database query optimization.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. HACKVEDA SOLUTIONS -->
+        <article class="t-card crystal-card">
+          <div class="crystal-sparks" aria-hidden="true">
+            <i class="spark spark-1">✦</i>
+            <i class="spark spark-2">✦</i>
+          </div>
+          <span class="t-node" aria-hidden="true"></span>
+          <div class="t-top">
+            <div class="t-brand">
+              <div class="t-logo-box" title="Hackveda Solutions Pvt. Ltd.">
+                <!-- Official Hackveda Cyber Shield SVG -->
+                <svg class="t-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Hackveda Logo">
+                  <defs>
+                    <linearGradient id="hvGrad" x1="15" y1="15" x2="85" y2="85" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#00E676"/>
+                      <stop offset="100%" stop-color="#0091EA"/>
+                    </linearGradient>
+                  </defs>
+                  <polygon points="50,14 82,30 82,68 50,86 18,68 18,30" stroke="url(#hvGrad)" stroke-width="6" fill="#0E1626"/>
+                  <path d="M34 42 L44 50 L34 58" stroke="#00E676" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="48" y1="58" x2="64" y2="58" stroke="#00B0FF" stroke-width="4.5" stroke-linecap="round"/>
+                  <text x="50" y="96" text-anchor="middle" fill="#FFFFFF" font-family="'Oswald', sans-serif" font-weight="700" font-size="11" letter-spacing="1.5">HACKVEDA</text>
+                </svg>
+              </div>
+              <div>
+                <h3 class="t-role">Java Developer Intern</h3>
+                <p class="t-org">
+                  <span>Hackveda Solutions Pvt. Ltd.</span>
+                  <span class="badge-tag">INTERNSHIP</span>
+                </p>
+              </div>
+            </div>
+            <span class="t-meta">April 2026 – June 2026 · New Delhi</span>
+          </div>
+
+          <p class="t-desc">
+            Developed Java applications using Core Java, JDBC, Servlets, Hibernate, Spring Boot, and PostgreSQL. Applied object-oriented principles to create modular, reusable components while strengthening debugging practices, database integration, and code quality.
+          </p>
+
+          <button class="t-toggle-btn" type="button" aria-expanded="false">
+            <span>Expand Details</span>
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </button>
+
+          <div class="t-expandable">
+            <div class="t-details-grid">
+              <div class="t-tech-stack">
+                <span class="pill-tech">Core Java</span>
+                <span class="pill-tech">JDBC</span>
+                <span class="pill-tech">Servlets</span>
+                <span class="pill-tech">Hibernate</span>
+                <span class="pill-tech">Spring Boot</span>
+                <span class="pill-tech">PostgreSQL</span>
+              </div>
+              <p class="t-desc" style="margin:0; font-size:13px; color:#a4a4a4;">
+                Implemented secure RESTful endpoints, relational data mapping via Hibernate ORM, connection pool configuration, and unit test suites.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. FINWIZZ FINANCIAL SERVICES -->
+        <article class="t-card crystal-card">
+          <div class="crystal-sparks" aria-hidden="true">
+            <i class="spark spark-1">✦</i>
+            <i class="spark spark-2">✦</i>
+          </div>
+          <span class="t-node" aria-hidden="true"></span>
+          <div class="t-top">
+            <div class="t-brand">
+              <div class="t-logo-box" title="Finwizz Financial Services Pvt. Ltd.">
+                <!-- Official Finwizz Financial Wing SVG -->
+                <svg class="t-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Finwizz Logo">
+                  <defs>
+                    <linearGradient id="finGrad" x1="20" y1="20" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                      <stop offset="0%" stop-color="#F59E0B"/>
+                      <stop offset="100%" stop-color="#B45309"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M22 36 L50 20 L78 36 L70 48 L50 36 L30 48 Z" fill="url(#finGrad)"/>
+                  <path d="M26 52 L50 38 L74 52 L66 64 L50 52 L34 64 Z" fill="#3B82F6"/>
+                  <circle cx="50" cy="70" r="4" fill="#F59E0B"/>
+                  <text x="50" y="92" text-anchor="middle" fill="#FFFFFF" font-family="'Oswald', sans-serif" font-weight="700" font-size="12" letter-spacing="2">FINWIZZ</text>
+                </svg>
+              </div>
+              <div>
+                <h3 class="t-role">Client Relations Associate</h3>
+                <p class="t-org">
+                  <span>Finwizz Financial Services Pvt. Ltd.</span>
+                  <span class="badge-tag">CLIENT RELATIONS</span>
+                </p>
+              </div>
+            </div>
+            <span class="t-meta">June 2024 – September 2024 · Virar · Full-time</span>
+          </div>
+
+          <p class="t-desc">
+            Managed client interactions, addressed customer queries, and supported timely issue resolution while maintaining service quality. Developed professional communication, relationship management, and client-handling skills that complement my technical career.
+          </p>
+
+          <button class="t-toggle-btn" type="button" aria-expanded="false">
+            <span>Expand Details</span>
+            <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+          </button>
+
+          <div class="t-expandable">
+            <div class="t-details-grid">
+              <div class="t-tech-stack">
+                <span class="pill-tech">Client Communication</span>
+                <span class="pill-tech">Issue Resolution</span>
+                <span class="pill-tech">Relationship Management</span>
+                <span class="pill-tech">Process Adherence</span>
+                <span class="pill-tech">Analytical Thinking</span>
+              </div>
+              <p class="t-desc" style="margin:0; font-size:13px; color:#a4a4a4;">
+                Cross-functional empathy, stakeholder communication, and active listening — vital for engineering software that fits real user workflows.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- 03. ACHIEVEMENTS & RECOGNITION                                       -->
+  <!-- ==================================================================== -->
+  <section class="sec sec-achievements" id="achievements" aria-labelledby="achTitle">
+    <div class="sec__inner">
+      <header class="sec__header">
+        <p class="sec__kicker">// 03 — HONORS &amp; RECOGNITION</p>
+        <h2 class="sec__title" id="achTitle">ACHIEVEMENTS &amp; <span class="text-accent">RECOGNITION</span></h2>
+        <p class="sec__sub">Competitive hackathons, national finals, enterprise certifications, and communication milestones.</p>
+      </header>
+
+      <!-- Achievement counter strip near top with large numerals -->
+      <div class="counter-strip">
+        <div class="counter-box crystal-card">
+          <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+          <p class="counter-num">3×</p>
+          <p class="counter-label">Tech Fest Wins</p>
+        </div>
+        <div class="counter-box crystal-card">
+          <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+          <p class="counter-num">Multiple</p>
+          <p class="counter-label">Hackathon Wins</p>
+        </div>
+        <div class="counter-box crystal-card">
+          <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+          <p class="counter-num">Finalist</p>
+          <p class="counter-label">IIT Bombay Hackathon</p>
+        </div>
+        <div class="counter-box crystal-card">
+          <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+          <p class="counter-num">Global</p>
+          <p class="counter-label">Redis Certification</p>
+        </div>
+      </div>
+
+      <!-- 7 Unique Achievement Cards Grid -->
+      <div class="achievements-grid">
+        <!-- 1. Multiple Hackathon Wins -->
+        <article class="ach-card crystal-card">
+          <div class="crystal-sparks" aria-hidden="true">
+            <i class="spark spark-1">✦</i>
+            <i class="spark spark-2">✦</i>
+          </div>
+          <div>
+            <div class="ach-badge-row">
+              <span class="ach-trophy" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0011 15.9V19H7v2h10v-2h-4v-3.1a5.01 5.01 0 003.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
+              </span>
+              <span class="ach-kicker">COMPETITIVE PROGRAMMING</span>
+            </div>
+            <h3 class="ach-title">Multiple Hackathon Wins</h3>
+            <p class="ach-desc">
+              Recognized as a winner across multiple hackathons, demonstrating rapid prototyping, teamwork, and turning complex problem briefs into working solutions under tight timelines.
+            </p>
+          </div>
+          <div class="ach-footer">
+            <span class="ach-pill">Podium Finishes</span>
+            <span class="ach-status">Verified Win</span>
+          </div>
+        </article>
+
+        <!-- 2. IIT Bombay Hackathon Finalist -->
+        <article class="ach-card crystal-card">
+          <div class="crystal-sparks" aria-hidden="true">
+            <i class="spark spark-1">✦</i>
+            <i class="spark spark-2">✦</i>
+          </div>
+          <div>
+            <div class="ach-badge-row">
+              <span class="ach-trophy" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.84L19.45 19H4.55L12 5.84zM11 10h2v4h-2zm0 6h2v2h-2z"/></svg>
+              </span>
+              <span class="ach-kicker">NATIONAL COMPETITION</span>
+            </div>
+            <h3 class="ach-title">IIT Bombay Hackathon Finalist</h3>
+            <p class="ach-desc">
+              Reached the finalist round in a national-level hackathon conducted by IIT Bombay, showcasing innovative system execution against premier technical teams.
+            </p>
+          </div>
+          <div class="ach-footer">
+            <span class="ach-pill">IIT Bombay</span>
+            <span class="ach-status">Finalist</span>
+          </div>
+        </article>
+
+        <!-- 3. Triple Tech Fest Winner -->
+        <article class="ach-card crystal-card">
+          <div class="crystal-sparks" aria-hidden="true">
+            <i class="spark spark-1">✦</i>
+            <i class="spark spark-2">✦</i>
+          </div>
+          <div>
+            <div class="ach-badge-row">
+              <span class="ach-trophy" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </span>
+              <span class="ach-kicker">3× COMPETITION WINS</span>
+            </div>
+            <h3 class="ach-title">Triple Tech Fest Winner</h3>
+            <p class="ach-desc">
+              Secured wins across three separate Tech Fest competitions, reflecting consistent performance, competitive stamina, and practical algorithmic application.
+            </p>
+          </div>
+          <div class="ach-footer">
+            <span class="ach-pill">Consistent Podium</span>
+            <span class="ach-status">3× Winner</span>
+          </div>
+        </article>
+
+        <!-- 4. Edunet Foundation — Project Recognition -->
+        <article class="ach-card crystal-card">
+          <div class="crystal-sparks" aria-hidden="true">
+            <i class="spark spark-1">✦</i>
+            <i class="spark spark-2">✦</i>
+          </div>
+          <div>
+            <div class="ach-badge-row">
+              <span class="ach-trophy" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z"/></svg>
+              </span>
+              <span class="ach-kicker">AI/ML WORKSHOP</span>
+            </div>
+            <h3 class="ach-title">Edunet Foundation — Project Recognition</h3>
+            <p class="ach-desc">
+              Project placed among the top-listed submissions in the workshop, leading to the assignment of an industry mentor for continued advancement.
+            </p>
+          </div>
+          <div class="ach-footer">
+            <span class="ach-pill">Top Project</span>
+            <span class="ach-status">Mentorship Award</span>
+          </div>
+        </article>
+
+        <!-- 5. Redis Certified Associate Developer -->
+        <article class="ach-card crystal-card">
+          <div class="crystal-sparks" aria-hidden="true">
+            <i class="spark spark-1">✦</i>
+            <i class="spark spark-2">✦</i>
+          </div>
+          <div>
+            <div class="ach-badge-row">
+              <span class="ach-trophy" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+              </span>
+              <span class="ach-kicker">GLOBAL CERTIFICATION</span>
+            </div>
+            <h3 class="ach-title">Redis Certified Associate Developer</h3>
+            <p class="ach-desc">
+              Globally recognized certification demonstrating deep knowledge of Redis in-memory data structures, caching paradigms, pub/sub mechanics, and high-performance system design.
+            </p>
+          </div>
+          <div class="ach-footer">
+            <span class="ach-pill">Redis Official</span>
+            <span class="ach-status">Certified</span>
+          </div>
+        </article>
+
+        <!-- 6. AI & Machine Learning Certifications -->
+        <article class="ach-card crystal-card">
+          <div class="crystal-sparks" aria-hidden="true">
+            <i class="spark spark-1">✦</i>
+            <i class="spark spark-2">✦</i>
+          </div>
+          <div>
+            <div class="ach-badge-row">
+              <span class="ach-trophy" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zm-3-7h-2V7h-2v2h-2v2h2v2h2v-2h2z"/></svg>
+              </span>
+              <span class="ach-kicker">EDUNET &amp; IBM</span>
+            </div>
+            <h3 class="ach-title">AI &amp; Machine Learning Certifications</h3>
+            <p class="ach-desc">
+              Completed professional AI/ML curriculum through Edunet Foundation and IBM, deepening understanding of neural architectures, predictive modeling, and intelligent software applications.
+            </p>
+          </div>
+          <div class="ach-footer">
+            <span class="ach-pill">IBM Credential</span>
+            <span class="ach-status">Completed</span>
+          </div>
+        </article>
+
+        <!-- 7. Debate Competition Winner -->
+        <article class="ach-card crystal-card">
+          <div class="crystal-sparks" aria-hidden="true">
+            <i class="spark spark-1">✦</i>
+            <i class="spark spark-2">✦</i>
+          </div>
+          <div>
+            <div class="ach-badge-row">
+              <span class="ach-trophy" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
+              </span>
+              <span class="ach-kicker">LEADERSHIP &amp; ORATORY</span>
+            </div>
+            <h3 class="ach-title">Debate Competition Winner</h3>
+            <p class="ach-desc">
+              Won competitive debating titles, honing structured argumentation, spontaneous reasoning, public speaking, and the ability to articulate technical perspectives with poise and conviction.
+            </p>
+          </div>
+          <div class="ach-footer">
+            <span class="ach-pill">Championship</span>
+            <span class="ach-status">Winner</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- 04. TECHNICAL EXPERTISE (SKILLS)                                     -->
+  <!-- ==================================================================== -->
+  <section class="sec sec-skills" id="skills" aria-labelledby="skillsTitle">
+    <div class="sec__inner">
+      <header class="sec__header">
+        <p class="sec__kicker">// 04 — CAPABILITIES &amp; DOMAINS</p>
+        <h2 class="sec__title" id="skillsTitle">TECHNICAL <span class="text-accent">EXPERTISE</span></h2>
+        <p class="sec__sub">Organized by engineering domain rather than disconnected logos. Focused on Java, backend engineering, databases, and full-stack systems.</p>
+      </header>
+
+      <!-- Domain Navigation Filter Tabs -->
+      <div class="skills-nav" role="tablist">
+        <button class="skill-tab-btn is-active crystal-card" data-domain="all" type="button">All Domains</button>
+        <button class="skill-tab-btn crystal-card" data-domain="backend" type="button">Backend Engineering</button>
+        <button class="skill-tab-btn crystal-card" data-domain="database" type="button">Databases &amp; Data</button>
+        <button class="skill-tab-btn crystal-card" data-domain="frontend" type="button">Frontend &amp; Application</button>
+        <button class="skill-tab-btn crystal-card" data-domain="tools" type="button">Engineering &amp; AI Tools</button>
+        <button class="skill-tab-btn crystal-card" data-domain="os" type="button">Operating System</button>
+      </div>
+
+      <div class="skills-domain-grid">
+        <!-- 1. Backend Engineering -->
+        <div class="domain-group crystal-card" data-domain="backend">
+          <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+          <div class="domain-head">
+            <h3 class="domain-title">
+              <svg style="width:20px;height:20px;fill:var(--ink-hot);" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"/></svg>
+              Backend Engineering
+            </h3>
+            <span class="domain-count">9 TECHNOLOGIES</span>
+          </div>
+          <div class="skills-tags-cluster">
+            <div class="skill-card-badge is-core"><span class="skill-name">Java</span><span class="skill-meta">Primary Foundation</span></div>
+            <div class="skill-card-badge is-core"><span class="skill-name">Core Java</span><span class="skill-meta">OOP &amp; Concurrency</span></div>
+            <div class="skill-card-badge is-core"><span class="skill-name">OOP</span><span class="skill-meta">Design Patterns</span></div>
+            <div class="skill-card-badge is-core"><span class="skill-name">Spring Boot</span><span class="skill-meta">Production Microservices</span></div>
+            <div class="skill-card-badge"><span class="skill-name">Spring Framework</span><span class="skill-meta">IoC / DI / Core</span></div>
+            <div class="skill-card-badge"><span class="skill-name">JDBC</span><span class="skill-meta">Database Connectivity</span></div>
+            <div class="skill-card-badge"><span class="skill-name">Hibernate</span><span class="skill-meta">ORM &amp; Persistence</span></div>
+            <div class="skill-card-badge is-core"><span class="skill-name">REST APIs</span><span class="skill-meta">Architectural Design</span></div>
+            <div class="skill-card-badge"><span class="skill-name">Servlets</span><span class="skill-meta">Web Layer Fundamentals</span></div>
+          </div>
+        </div>
+
+        <!-- 2. Databases & Data -->
+        <div class="domain-group crystal-card" data-domain="database">
+          <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+          <div class="domain-head">
+            <h3 class="domain-title">
+              <svg style="width:20px;height:20px;fill:var(--ink-hot);" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.02 2 6.5v11C2 19.98 6.48 22 12 22s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2zm0 2c4.42 0 8 1.34 8 2.5S16.42 9 12 9 4 7.66 4 6.5 7.58 4 12 4zm0 16c-4.42 0-8-1.34-8-2.5v-2.3c2.16 1.15 5.02 1.8 8 1.8s5.84-.65 8-1.8v2.3c0 1.16-3.58 2.5-8 2.5z"/></svg>
+              Databases &amp; Data
+            </h3>
+            <span class="domain-count">7 SYSTEMS</span>
+          </div>
+          <div class="skills-tags-cluster">
+            <div class="skill-card-badge is-core"><span class="skill-name">SQL</span><span class="skill-meta">Relational Queries</span></div>
+            <div class="skill-card-badge is-core"><span class="skill-name">PostgreSQL</span><span class="skill-meta">Enterprise Relational</span></div>
+            <div class="skill-card-badge"><span class="skill-name">MySQL</span><span class="skill-meta">Schema &amp; Indexing</span></div>
+            <div class="skill-card-badge is-core"><span class="skill-name">Redis</span><span class="skill-meta">Certified Developer</span></div>
+            <div class="skill-card-badge"><span class="skill-name">Firebase</span><span class="skill-meta">Realtime Cloud</span></div>
+            <div class="skill-card-badge"><span class="skill-name">Firestore</span><span class="skill-meta">Document Store</span></div>
+            <div class="skill-card-badge"><span class="skill-name">Supabase</span><span class="skill-meta">Postgres BaaS</span></div>
+          </div>
+        </div>
+
+        <!-- 3. Frontend & Application Development -->
+        <div class="domain-group crystal-card" data-domain="frontend">
+          <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+          <div class="domain-head">
+            <h3 class="domain-title">
+              <svg style="width:20px;height:20px;fill:var(--ink-hot);" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+              Frontend &amp; Application Development
+            </h3>
+            <span class="domain-count">6 FRAMEWORKS</span>
+          </div>
+          <div class="skills-tags-cluster">
+            <div class="skill-card-badge is-core"><span class="skill-name">HTML</span><span class="skill-meta">Semantic Markup</span></div>
+            <div class="skill-card-badge is-core"><span class="skill-name">CSS</span><span class="skill-meta">Modern Layouts &amp; Grids</span></div>
+            <div class="skill-card-badge is-core"><span class="skill-name">JavaScript</span><span class="skill-meta">ES6+ &amp; Asynchronous</span></div>
+            <div class="skill-card-badge is-core"><span class="skill-name">React</span><span class="skill-meta">Component Architecture</span></div>
+            <div class="skill-card-badge"><span class="skill-name">Java Swing</span><span class="skill-meta">Desktop GUI Systems</span></div>
+            <div class="skill-card-badge"><span class="skill-name">Framer Motion</span><span class="skill-meta">Interactive Animation</span></div>
+          </div>
+        </div>
+
+        <!-- 4. Engineering & AI Tools -->
+        <div class="domain-group crystal-card" data-domain="tools">
+          <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+          <div class="domain-head">
+            <h3 class="domain-title">
+              <svg style="width:20px;height:20px;fill:var(--ink-hot);" viewBox="0 0 24 24"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+              Engineering &amp; AI Tools
+            </h3>
+            <span class="domain-count">8 UTILITIES</span>
+          </div>
+          <div class="skills-tags-cluster">
+            <div class="skill-card-badge is-core"><span class="skill-name">Git</span><span class="skill-meta">Version Control</span></div>
+            <div class="skill-card-badge is-core"><span class="skill-name">GitHub</span><span class="skill-meta">CI/CD &amp; Collaboration</span></div>
+            <div class="skill-card-badge is-core"><span class="skill-name">Maven</span><span class="skill-meta">Build &amp; Dependency</span></div>
+            <div class="skill-card-badge is-core"><span class="skill-name">Postman</span><span class="skill-meta">API Testing &amp; Docs</span></div>
+            <div class="skill-card-badge"><span class="skill-name">Docker</span><span class="skill-meta">Containerization</span></div>
+            <div class="skill-card-badge"><span class="skill-name">ChatGPT</span><span class="skill-meta">Prompt &amp; Code Assist</span></div>
+            <div class="skill-card-badge"><span class="skill-name">Gemini AI</span><span class="skill-meta">Advanced Agentic Work</span></div>
+            <div class="skill-card-badge"><span class="skill-name">Claude</span><span class="skill-meta">Reasoning &amp; Architecture</span></div>
+          </div>
+        </div>
+
+        <!-- 5. Operating System -->
+        <div class="domain-group crystal-card" data-domain="os">
+          <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+          <div class="domain-head">
+            <h3 class="domain-title">
+              <svg style="width:20px;height:20px;fill:var(--ink-hot);" viewBox="0 0 24 24"><path d="M4 17h16v2H4zm13-6.5V6H7v4.5H4v3h16v-3h-3zM9 8h6v2.5H9z"/></svg>
+              Operating System
+            </h3>
+            <span class="domain-count">1 PLATFORM</span>
+          </div>
+          <div class="skills-tags-cluster">
+            <div class="skill-card-badge is-core"><span class="skill-name">Linux</span><span class="skill-meta">Bash, CLI, Environment &amp; Server Administration</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- 05. CONTACT SECTION — LET'S BUILD SOMETHING MEANINGFUL               -->
+  <!-- ==================================================================== -->
+  <section class="sec sec-contact" id="contact" aria-labelledby="contactTitle">
+    <div class="contact-wrap sec__inner">
+      <div class="contact-orb" aria-hidden="true"></div>
+
+      <header class="sec__header">
+        <p class="sec__kicker">// 05 — INVITATION &amp; REACH OUT</p>
+        <h2 class="sec__title" id="contactTitle">HAVE AN IDEA? <span class="text-accent">LET'S CONNECT.</span></h2>
+        <p class="sec__sub">Good ideas deserve great engineering. Open to meaningful discussions around technology and software architecture.</p>
+      </header>
+
+      <div class="contact-layout">
+        <!-- Left: Statement & Direct Clickable Profile Rows -->
+        <div class="contact-statement">
+          <p class="contact-hero-quote">
+            Good ideas<br>deserve great<br><span>engineering.</span>
+          </p>
+
+          <p class="contact-sub-lead">
+            Whether it's a software project, a technical collaboration, or an opportunity to exchange ideas, I'm always open to meaningful conversations around technology and innovation.
+          </p>
+
+          <div class="contact-rows-list">
+            <!-- Email Row -->
+            <a class="contact-row-item crystal-card" href="mailto:shlokjadhav.dev@gmail.com">
+              <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+              <div class="contact-row-left">
+                <span class="contact-row-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </span>
+                <div>
+                  <span class="contact-row-label">EMAIL</span>
+                  <span class="contact-row-val">shlokjadhav.dev@gmail.com</span>
+                </div>
+              </div>
+              <div class="contact-row-action">
+                <button class="btn-copy-chip" data-copy="shlokjadhav.dev@gmail.com" type="button" title="Copy email address">Copy</button>
+                <span>Write &rarr;</span>
+              </div>
+            </a>
+
+            <!-- LinkedIn Row -->
+            <a class="contact-row-item crystal-card" href="https://www.linkedin.com/in/jshlok/" target="_blank" rel="noopener noreferrer">
+              <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+              <div class="contact-row-left">
+                <span class="contact-row-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.22a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z"/></svg>
+                </span>
+                <div>
+                  <span class="contact-row-label">LINKEDIN</span>
+                  <span class="contact-row-val">linkedin.com/in/jshlok</span>
+                </div>
+              </div>
+              <div class="contact-row-action">
+                <span>Connect &rarr;</span>
+              </div>
+            </a>
+
+            <!-- GitHub Row -->
+            <a class="contact-row-item crystal-card" href="https://github.com/mr-shlok" target="_blank" rel="noopener noreferrer">
+              <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+              <div class="contact-row-left">
+                <span class="contact-row-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                </span>
+                <div>
+                  <span class="contact-row-label">GITHUB</span>
+                  <span class="contact-row-val">github.com/mr-shlok</span>
+                </div>
+              </div>
+              <div class="contact-row-action">
+                <span>Explore Code &rarr;</span>
+              </div>
+            </a>
+
+            <!-- Live Portfolio Row -->
+            <a class="contact-row-item crystal-card" href="https://shlok-jadhav.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <div class="crystal-sparks" aria-hidden="true"><i class="spark spark-1">✦</i></div>
+              <div class="contact-row-left">
+                <span class="contact-row-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2L2 19.78h20L12 2zm0 3.5l7.07 12.28H4.93L12 5.5z"/></svg>
+                </span>
+                <div>
+                  <span class="contact-row-label">PORTFOLIO</span>
+                  <span class="contact-row-val">shlok-jadhav.vercel.app</span>
+                </div>
+              </div>
+              <div class="contact-row-action">
+                <span>Visit Live &rarr;</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Contact Form -->
+        <div class="contact-form-box crystal-card">
+          <div class="crystal-sparks" aria-hidden="true">
+            <i class="spark spark-1">✦</i>
+            <i class="spark spark-2">✦</i>
+          </div>
+          <div class="form-head">
+            <h3 class="form-title">Send a Message</h3>
+            <p class="form-sub">Have a project in mind or want to discuss engineering?</p>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label class="form-label" for="formName">YOUR NAME *</label>
+              <input class="form-input" id="formName" type="text" placeholder="e.g. Alex Morgan" required autocomplete="name">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="formEmail">YOUR EMAIL *</label>
+              <input class="form-input" id="formEmail" type="email" placeholder="name@domain.com" required autocomplete="email">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="formSubject">SUBJECT</label>
+              <input class="form-input" id="formSubject" type="text" placeholder="Project Inquiry / Tech Discussion">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="formMessage">MESSAGE *</label>
+              <textarea class="form-textarea" id="formMessage" placeholder="Tell me about your idea, challenge, or collaboration..." required></textarea>
+            </div>
+
+            <button class="form-submit-btn crystal-card" type="submit">
+              <span>Send Message</span>
+              <svg style="width:14px;height:14px;fill:currentColor;" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <p class="contact-quote-foot">
+        Open to collaboration. Always learning. Always building. Let's turn thoughtful ideas into meaningful software.
+      </p>
+    </div>
+  </section>
+
 </main>
 
 <!-- ====================================================================== -->
+<!-- 06. CLOSING FINALE FOOTER (The boy in front of the giant SHLOK name)   -->
+<!-- ====================================================================== -->
 <footer class="fin" id="fin" aria-label="Closing">
   <div class="fin__pin">
-  <h2 class="sr-only">Gireesh</h2>
+    <h2 class="sr-only">Shlok Jadhav</h2>
 
-  <div class="fin__stage1" id="finStage1">
-    <canvas id="finBack" aria-hidden="true"></canvas>
-    <canvas id="finMan" aria-hidden="true"></canvas>
+    <div class="fin__stage1" id="finStage1">
+      <canvas id="finBack" aria-hidden="true"></canvas>
 
-    <p class="f-cap f-cap--tl" aria-hidden="true">
-      Ideas<br>Designs<br>Experiences<br>Real Impact
-    </p>
-    <blockquote class="f-cap f-cap--quote">
-      &ldquo;Good<br>Design<br>Smokes<br>Louder.&rdquo;
-    </blockquote>
-    <p class="f-cap f-cap--blw" aria-hidden="true">A<br>Designer&rsquo;s<br>World</p>
-    <p class="f-cap f-cap--tr" aria-hidden="true">
-      Same<br>Passion<br>A Brighter<br>Tomorrow
-    </p>
-    <p class="f-cap f-cap--br" aria-hidden="true">Design<br>Build<br>Explore<br>Repeat</p>
-  </div>
+      <!-- Giant distressed red SHLOK wordmark layered behind the smoking boy -->
+      <div class="fin__wordmark" id="finWordmark" aria-hidden="true">
+        <span class="fin__wordmark-text">SHLOK</span>
+      </div>
 
-  <div class="fin__dim" id="finDim" aria-hidden="true"></div>
+      <canvas id="finMan" aria-hidden="true"></canvas>
 
-  <!-- the second frame of the finale: slides in from the left on scroll.
-       Dormant until its image exists (see boot6's candidate list). -->
-  <figure class="fin__frame2" id="finFrame2" aria-hidden="true" hidden>
-    <img id="finFrame2Img" alt="" draggable="false" decoding="async">
-  </figure>
+      <p class="f-cap f-cap--tl" aria-hidden="true">
+        Ideas<br>Designs<br>Experiences<br>Real Impact
+      </p>
+      <blockquote class="f-cap f-cap--quote">
+        &ldquo;Good<br>Design<br>Smokes<br>Louder.&rdquo;
+      </blockquote>
+      <p class="f-cap f-cap--blw" aria-hidden="true">A<br>Developer&rsquo;s<br>World</p>
+      <p class="f-cap f-cap--tr" aria-hidden="true">
+        Same<br>Passion<br>A Brighter<br>Tomorrow
+      </p>
+      <p class="f-cap f-cap--br" aria-hidden="true">Design<br>Build<br>Explore<br>Repeat</p>
+    </div>
 
-  <div class="fin__bar">
-    <a href="#" data-nav>Contact</a>
-    <nav class="fin__soc" aria-label="Social">
-      <a href="#" rel="me">Instagram</a>
-      <a href="#" rel="me">Behance</a>
-      <a href="#" rel="me">LinkedIn</a>
-    </nav>
-    <small class="fin__c">&copy; 2026 Gireesh &mdash; All rights reserved</small>
-  </div>
+    <div class="fin__dim" id="finDim" aria-hidden="true"></div>
+
+    <figure class="fin__frame2" id="finFrame2" aria-hidden="true" hidden>
+      <img id="finFrame2Img" alt="" draggable="false" decoding="async">
+    </figure>
+
+    <div class="fin__bar">
+      <a href="#contact" data-nav>Contact</a>
+      <nav class="fin__soc" aria-label="Social">
+        <a href="https://github.com/mr-shlok" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/jshlok/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:shlokjadhav.dev@gmail.com">Email</a>
+      </nav>
+      <small class="fin__c">&copy; 2026 Shlok Jadhav &mdash; All rights reserved</small>
+    </div>
   </div>
 </footer>
+
+<!-- Floating Toast Notification HUD -->
+<div id="hudToast" class="hud-toast" role="status" aria-live="polite">
+  <svg style="width:16px;height:16px;fill:var(--ink-hot);" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+  <span id="hudToastText">Notification</span>
+</div>
 
 <script type="module" src="src/main.js"></script>
 </body>

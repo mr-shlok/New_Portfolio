@@ -16,6 +16,7 @@ import { initUniverse } from './scene2/boot2.js';
 import { initChrono } from './scene3/boot3.js';
 import { initGallery } from './scene4/boot4.js';
 import { initFinale } from './scene6/boot6.js';
+import { initPortfolioInteractivity } from './lib/portfolio-interactive.js';
 
 // a cinematic page manages its own positions; the browser restoring an old
 // scroll offset mid-boot yanks the visitor (and any scripted anchor) around
@@ -28,6 +29,8 @@ const root = document.documentElement;
 const boot = document.getElementById('boot');
 const bootFill = document.getElementById('bootFill');
 const bootEnter = document.getElementById('bootEnter');
+const bootPct = document.getElementById('bootPct');
+const bootStatus = document.getElementById('bootStatus');
 
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -60,9 +63,17 @@ async function main() {
     return degrade('media manifest missing');
   }
 
-  const steps = 4;
+  const steps = 3;
   let done = 0;
-  const tick = () => { bootFill.style.width = `${(++done / steps) * 100}%`; };
+  // each tick advances the gauge and names what just landed, so the loader
+  // reads as a live instrument rather than a blind spinner
+  const LOADING_NOTES = ['LOADING TEXTURES', 'THREADING THE FILM', 'READY'];
+  const tick = () => {
+    const pct = Math.round((++done / steps) * 100);
+    bootFill.style.width = `${pct}%`;
+    if (bootPct) bootPct.textContent = `${pct}%`;
+    if (bootStatus) bootStatus.textContent = LOADING_NOTES[Math.min(done, steps) - 1];
+  };
 
   const startedAt = performance.now();
 
@@ -90,6 +101,7 @@ async function main() {
   layout();
   window.addEventListener('resize', debounce(layout, 140));
   window.addEventListener('orientationchange', () => setTimeout(layout, 220));
+  initPortfolioInteractivity();
 
   await app.clips.hero.whenReady();
   tick();
@@ -121,6 +133,10 @@ function begin() {
   app.running = true;
   bindPointer();
 
+  // the header must never stay hidden behind an unfinished intro: whoever
+  // scrolls first gets the navigation immediately
+  window.addEventListener('scroll', revealHeader, { passive: true, once: true });
+
   // ?t=4.2 starts the sequence part-way through, and ?t=end lands on the
   // settled composition. Purely a review aid for tuning a single beat without
   // sitting through the whole opening each time.
@@ -150,6 +166,13 @@ function begin() {
     return;
   }
   requestAnimationFrame(frame);
+}
+
+/** Fire the header cue early — scroll intent beats choreography. */
+function revealHeader() {
+  if (app.fired.has('header')) return;
+  app.fired.add('header');
+  root.classList.add('is-header');
 }
 
 /** Autoplay was refused — offer a single deliberate entry point. */
@@ -226,7 +249,9 @@ function frame(now) {
     for (const l of state.letters) l.dy = b * 0.0035;
   }
 
-  app.stage.render(state, t, app.clips);
+  // the fixed hero is hidden behind later scenes; rendering a canvas nobody
+  // can see is pure GPU burn, so the loop idles until it is back on screen
+  if (app.heroOnScreen !== false) app.stage.render(state, t, app.clips);
   requestAnimationFrame(frame);
 }
 
@@ -239,7 +264,7 @@ function degrade(reason) {
   boot.classList.add('is-done');
   for (const [, name] of CUES) root.classList.add(`is-${name}`);
   document.querySelector('.stage-wrap').insertAdjacentHTML('afterbegin',
-    '<div class="fallback"><p>GIREESH</p>'
+    '<div class="fallback"><p>SHLOK</p>'
     + '<small>Welcome to my world</small></div>');
 }
 

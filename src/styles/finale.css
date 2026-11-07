@@ -41,6 +41,41 @@
 #finBack { z-index: 1; }
 #finMan { z-index: 3; pointer-events: none; }
 
+.fin__wordmark {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 1.6s var(--ease-out), transform 2.2s var(--ease-out);
+}
+.fin.is-set .fin__wordmark,
+.fin.is-caps .fin__wordmark {
+  opacity: 1;
+  transform: scale(1);
+}
+.fin__wordmark-text {
+  display: block;
+  font-family: var(--disp);
+  font-size: clamp(140px, 25vw, 360px);
+  line-height: 0.78;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  background: linear-gradient(180deg, #ff3333 0%, #d61a1b 45%, #660505 100%);
+  background-image: url('../../public/tex/grunge.png');
+  background-size: 320px;
+  background-blend-mode: multiply;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 35px rgba(222, 27, 28, 0.75)) drop-shadow(0 0 90px rgba(180, 10, 10, 0.55));
+  transform: scaleY(1.32) translateY(-4%);
+}
+
 /* dims frame 1 as frame 2 advances over it */
 .fin__dim {
   position: absolute;

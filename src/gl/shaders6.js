@@ -52,7 +52,9 @@ void main(){
   // luminance so the wordmark surfaces through the fog
   float lum = dot(base, vec3(0.299, 0.587, 0.114));
   float bright = smoothstep(0.30, 0.58, lum);
-  float gate = uGlow * (1.0 - bright) + uWord * bright;
+  base = mix(base, vec3(0.12, 0.015, 0.015), bright * 0.88);
+  lum = dot(base, vec3(0.299, 0.587, 0.114));
+  float gate = uGlow;
   float breathe = 1.0 + 0.035 * sin(uTime * 0.5) * uGlow;
   vec3 col = base * (0.03 + 0.97 * gate) * breathe;
 
