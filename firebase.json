@@ -1,0 +1,44 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "**/.*",
+      "**/.*/**",
+      "**/node_modules/**",
+      "assets_src/**",
+      "tools/**",
+      "docs/**",
+      "README.md",
+      "package.json",
+      "package-lock.json",
+      "test-server.js",
+      "*.py",
+      "Gireesh*.mp4",
+      "Gireesh*.mov",
+      "Man_walking_and_smoking_cigarette_202609051235.mp4",
+      "section 2 refrence video.mp4"
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|png|webp|avif|mp4|webm|mov|woff2)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=604800"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(html|js|css|json)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
+    ]
+  }
+}
