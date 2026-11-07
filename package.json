@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "node tools/serve.mjs 5173",
-    "serve": "node tools/serve.mjs 5173"
+    "serve": "node tools/serve.mjs 5173",
+    "deploy": "firebase deploy --only hosting",
+    "deploy:preview": "firebase hosting:channel:deploy preview --expire 7d"
   }
 }
