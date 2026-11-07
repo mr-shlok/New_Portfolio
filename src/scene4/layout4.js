@@ -16,7 +16,9 @@ export const CARDS = [
   { id: 'p02_game', title: 'More Than A Game',
     box: [63, 251, 428, 269], depth: 0.25,
     tint: [0.249, 0.267, 0.295] },
-  { id: 'p03_build', title: 'Build Without Limits',
+  // the sprite is cut to the same box as the plate it replaced, only the screen
+  // inside the bezel changed, so the deck's placement maths is untouched
+  { id: 'p03_kalavya', title: 'Kalavya — Rooted in Heritage',
     box: [566, 41, 471, 288], depth: 0.6,
     tint: [0.414, 0.291, 0.291] },
   { id: 'p04_driven', title: 'Driven by Better Design',
