@@ -1,1 +1,5 @@
 shots/
+
+# firebase CLI working dir + local dev
+.firebase/
+node_modules/
