@@ -171,6 +171,13 @@
 }
 
 .sec__title .text-accent {
+  /* The grunge is painted with background-clip:text, so it can only show where
+     the element's own box reaches. Against a .96 line-height that box stops at
+     the baseline and shears the bottom off every accented word — the padding
+     below buys the descender room back without changing the line rhythm. */
+  display: inline-block;
+  padding-bottom: .14em;
+  margin-bottom: -.14em;
   color: var(--ink);
   background-color: var(--ink);
   background-image: url('../../public/tex/grunge.png');
@@ -1461,6 +1468,9 @@
     padding-bottom: 6px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    /* a soft right edge says "there is more" where a scrollbar would */
+    -webkit-mask-image: linear-gradient(90deg, #000 0, #000 84%, transparent 100%);
+    mask-image: linear-gradient(90deg, #000 0, #000 84%, transparent 100%);
   }
   .skills-nav::-webkit-scrollbar { display: none; }
   .skill-tab-btn { flex: 0 0 auto; }
@@ -1483,6 +1493,9 @@
 }
 
 @media (max-width: 480px) {
+  /* a phone has no gutter to spare, but 14px hugs the glass — and the menu's
+     anchor jumps would otherwise land the heading under the fixed bar */
+  :root { --edge: 18px; }
   .t-card { padding: 18px; }
   .ach-card { padding: 18px; }
   .domain-group { padding: 18px; }
@@ -1490,6 +1503,12 @@
   .skill-card-badge { padding: 8px 12px; gap: 8px; }
   .about-status-banner { padding: 14px 16px; }
   .form-submit-btn { width: 100%; letter-spacing: .2em; }
+}
+
+/* The header is fixed, so an in-page jump would tuck the section's first line
+   underneath it; every anchored section keeps a bar's worth of clearance. */
+#about, #work, #achievements, #skills, #contact, #chrono, #gallery {
+  scroll-margin-top: calc(var(--hdr-h) + 8px);
 }
 
 /* --------------------------------------------------------------------------

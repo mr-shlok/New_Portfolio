@@ -110,7 +110,13 @@ export async function initChrono() {
       const n = L.nodes[i];
       labels[i].style.left = `${n[0]}px`;
       labels[i].style.top = `${n[1]}px`;
-      labels[i].style.fontSize = `${Math.max(19, c.w * 0.30)}px`;
+      // Measured off the fitted card width these numerals came out at ~72px on
+      // a phone: wider than the rail they sit on, so they ran off the left edge
+      // and collided with the card. Portrait caps them against the viewport,
+      // which keeps the whole year inside the frame at any handset width.
+      labels[i].style.fontSize = portrait
+        ? `${Math.max(18, Math.min(c.w * 0.30, L.w * 0.075))}px`
+        : `${Math.max(19, c.w * 0.30)}px`;
     }
     section.classList.toggle('is-portrait', portrait);
   }

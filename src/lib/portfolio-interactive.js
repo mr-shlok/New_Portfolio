@@ -10,15 +10,29 @@ export function initPortfolioInteractivity() {
   const toast = document.getElementById('hudToast');
   const toastText = document.getElementById('hudToastText');
 
-  // 1. Audio Toggle
+  // 1. Audio — on by default, off only if the visitor said so last time
+  const SOUND_KEY = 'shlok:sound';
   if (soundToggle) {
     const soundText = soundToggle.querySelector('.sound-text');
+
+    // the toggle repaints from the engine, so it can never claim ON while the
+    // browser is still holding the context asleep
+    const paint = (enabled, running) => {
+      soundToggle.classList.toggle('is-active', enabled && running);
+      soundToggle.setAttribute('aria-pressed', String(enabled));
+      if (soundText) soundText.textContent = enabled ? 'SOUND: ON' : 'SOUND: OFF';
+    };
+    sound.onState = paint;
+
+    let muted = false;
+    try { muted = localStorage.getItem(SOUND_KEY) === 'off'; } catch { /* private mode */ }
+    if (muted) paint(false, false);
+    else sound.autoStart();
+
     soundToggle.addEventListener('click', () => {
       const active = sound.toggle();
-      soundToggle.classList.toggle('is-active', active);
-      if (soundText) {
-        soundText.textContent = active ? 'SOUND: ON' : 'SOUND: OFF';
-      }
+      paint(active, sound.ctx?.state === 'running');
+      try { localStorage.setItem(SOUND_KEY, active ? 'on' : 'off'); } catch { /* private mode */ }
       showToast(active ? 'Cinematic Audio: Activated' : 'Cinematic Audio: Muted');
     });
   }
@@ -177,7 +191,11 @@ export function initPortfolioInteractivity() {
       }
 
       // Build mailto link as fallback/action
-      const mailtoUrl = `mailto:shlokjadhav.dev@gmail.com?subject=${encodeURIComponent(subject ? `[Portfolio] ${subject}` : `[Portfolio] Message from ${name}`)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+      const mailtoUrl = `mailto:shlokjadhav.dev@gmail.com?subject=${encodeURIComponent(subject ? `[Portfolio] ${subject}` : `[Portfolio] Message from ${name}`)}&body=${encodeURIComponent(`Name: ${name}
+Email: ${email}
+
+Message:
+${message}`)}`;
 
       showToast('Opening email client...');
       sound.playSuccess();

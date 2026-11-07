@@ -10,6 +10,9 @@ class SoundEngine {
     this.ambientGain = null;
     this.nodes = [];
     this.lfo = null;
+    /** (enabled, running) => void — the header paints itself from this */
+    this.onState = null;
+    this._armed = null;
   }
 
   _init() {
@@ -100,26 +103,94 @@ class SoundEngine {
     this._init();
     if (!this.ctx) return false;
 
-    if (this.ctx.state === 'suspended') {
-      this.ctx.resume();
-    }
-
+    this._wake();
     this.enabled = !this.enabled;
-    const now = this.ctx.currentTime;
 
     if (this.enabled) {
-      this.ambientGain.gain.cancelScheduledValues(now);
-      this.ambientGain.gain.setValueAtTime(this.ambientGain.gain.value, now);
-      this.ambientGain.gain.linearRampToValueAtTime(0.18, now + 1.2);
+      this._ramp(0.18, 1.2);
       this.playSuccess();
     } else {
-      this.ambientGain.gain.cancelScheduledValues(now);
-      this.ambientGain.gain.setValueAtTime(this.ambientGain.gain.value, now);
-      this.ambientGain.gain.linearRampToValueAtTime(0, now + 0.6);
+      this._ramp(0, 0.6);
       this.playClick();
     }
 
+    // a refused context stays asleep until the visitor touches the page again,
+    // so keep the unlock watcher armed whenever we are supposed to be audible
+    if (this.enabled && this.ctx.state !== 'running') this._arm();
+    else this._disarm();
+
+    this._notify();
     return this.enabled;
+  }
+
+  /**
+   * Sound on, from the moment the visitor lands.
+   *
+   * Every browser gates audible playback behind a user gesture, so this tries
+   * immediately and, when the context comes back suspended, waits for the
+   * first tap/key/scroll-intent and fades the soundscape up then. The visitor
+   * never has to find the toggle, but the toggle still tells the truth.
+   */
+  autoStart() {
+    this._init();
+    if (!this.ctx) return false;
+
+    this.enabled = true;
+    this._wake();
+
+    if (this.ctx.state === 'running') {
+      this._ramp(0.18, 2.2);
+      this._notify();
+      return true;
+    }
+
+    this._arm();
+    this._notify();
+    return false;
+  }
+
+  /** Nudge a suspended context awake. Never awaited: it may not settle. */
+  _wake() {
+    if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume().catch(() => {});
+  }
+
+  _arm() {
+    if (this._armed) return;
+    const unlock = () => {
+      if (!this.ctx) return;
+      this._wake();
+      if (this.ctx.state !== 'running') return;
+      this._disarm();
+      if (this.enabled) this._ramp(0.18, 1.6);
+      this._notify();
+    };
+    // pointer/key are real activations; wheel is included because some engines
+    // accept a scroll as intent and it costs nothing to try
+    const events = ['pointerdown', 'touchstart', 'keydown', 'wheel'];
+    for (const e of events) {
+      window.addEventListener(e, unlock, { passive: true, capture: true });
+    }
+    this._armed = { unlock, events };
+  }
+
+  _disarm() {
+    if (!this._armed) return;
+    for (const e of this._armed.events) {
+      window.removeEventListener(e, this._armed.unlock, { capture: true });
+    }
+    this._armed = null;
+  }
+
+  _ramp(to, secs) {
+    if (!this.ctx || !this.ambientGain) return;
+    const now = this.ctx.currentTime;
+    this.ambientGain.gain.cancelScheduledValues(now);
+    this.ambientGain.gain.setValueAtTime(this.ambientGain.gain.value, now);
+    this.ambientGain.gain.linearRampToValueAtTime(to, now + secs);
+  }
+
+  _notify() {
+    if (this.onState) this.onState(this.enabled, this.ctx ? this.ctx.state === 'running' : false);
   }
 
   playHover() {

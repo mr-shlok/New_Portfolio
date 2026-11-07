@@ -116,13 +116,15 @@ export function fitScene(w, h) {
     // six cards land on top of each other. Instead the timeline stands UP: the
     // years become a vertical rail down the left, and one card at a time holds
     // the stage beside it.
-    const railX = w * 0.155;
+    // The rail sits a gutter in from the glass so the numerals clear the left
+    // edge, and the card is nudged right to keep daylight between the two.
+    const railX = w * 0.168;
     const top = h * 0.255;
     const step = h * 0.088;
     nodes = REF.nodes.map((_, i) => [railX + i * w * 0.006, top + i * step]);
     const cw = Math.min(w * 0.62, 330);
     cards = REF.nodes.map((_, i) => ({
-      x: w * 0.60, y: h * 0.50, w: cw, i,
+      x: w * 0.635, y: h * 0.50, w: cw, i,
     }));
     pivot = [w * 0.52, h * 0.075];
     floor = [w * 0.5, h * 0.965];

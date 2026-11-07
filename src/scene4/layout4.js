@@ -72,11 +72,11 @@ export function fitCover(w, h) {
 // Entries: card index -> centre x/y (viewport fractions), width (vw fraction).
 // --------------------------------------------------------------------------
 export const PORTRAIT = new Map([
-  [2, { cx: 0.50, cy: 0.235, w: 0.80 }],   // build
-  [0, { cx: 0.235, cy: 0.385, w: 0.50 }],  // timeless
-  [3, { cx: 0.77, cy: 0.39, w: 0.48 }],    // driven
+  [2, { cx: 0.50, cy: 0.235, w: 0.78 }],   // build
+  [0, { cx: 0.25, cy: 0.385, w: 0.48 }],   // timeless
+  [3, { cx: 0.75, cy: 0.39, w: 0.46 }],    // driven
   [6, { cx: 0.325, cy: 0.53, w: 0.29 }],   // food
   [7, { cx: 0.675, cy: 0.53, w: 0.29 }],   // travel
-  [10, { cx: 0.20, cy: 0.815, w: 0.48 }],  // cleaner
-  [11, { cx: 0.80, cy: 0.815, w: 0.48 }],  // steps
+  [10, { cx: 0.26, cy: 0.815, w: 0.46 }],  // cleaner
+  [11, { cx: 0.74, cy: 0.815, w: 0.46 }],  // steps
 ]);

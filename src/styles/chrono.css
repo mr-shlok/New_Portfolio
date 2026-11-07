@@ -323,13 +323,43 @@
 /* the year numerals become the tap targets */
 .chrono.is-portrait .yr-tag {
   transform: translate(-50%, -50%) scale(calc(.9 + .18 * var(--near, 0)));
+  /* centred on their node so the active year grows in place instead of
+     sliding out of the frame */
+  transform-origin: 50% 50%;
+  letter-spacing: .02em;
   padding: 10px 14px;
   margin: -10px -14px;
   pointer-events: auto;
   cursor: pointer;
   opacity: calc(var(--in, 0) * (.42 + .58 * var(--near, 0)));
 }
-.chrono.is-portrait .chrono__hint { top: auto; bottom: clamp(18px, 4vh, 44px); }
+/* the instruction is written for the device: pointer prose on a desktop, tap
+   prose on a handset */
+.chrono__hint-tap { display: none; }
+
+/* ...and it moves to the top right on a phone, where the bottom edge belongs
+   to the closing note and the figure */
+.chrono.is-portrait .chrono__hint {
+  top: calc(var(--hdr-h) + 14px);
+  right: var(--edge);
+  bottom: auto;
+}
+.chrono.is-portrait .chrono__hint-move { display: none; }
+.chrono.is-portrait .chrono__hint-tap { display: inline; }
+.chrono.is-portrait .chrono__note--br { display: none; }
+
+/* The stacked title has to clear the fixed header and stop before the first
+   numeral: on a phone it is set small and tight rather than scaled down from
+   the desktop size, where it wrapped into the rail. */
+.chrono.is-portrait .chrono__title {
+  top: calc(var(--hdr-h) + 14px);
+  left: var(--edge);
+  gap: .3em;
+  max-width: 58%;
+  font-size: clamp(11px, 3.05vw, 16px);
+  letter-spacing: .24em;
+  line-height: 1.32;
+}
 
 @media (max-width: 760px) {
   .chrono { height: 200svh; }
